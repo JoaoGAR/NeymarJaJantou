@@ -4,6 +4,7 @@ config.json
 # Ignorar arquivos de saída
 /bin/
 /obj/
+/.vs/
 
 # Ignorar arquivos do sistema
 *.dll
