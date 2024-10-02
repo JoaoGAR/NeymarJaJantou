@@ -1,0 +1,14 @@
+# Ignorar arquivos de configuração
+config.json
+
+# Ignorar arquivos de saída
+/bin/
+/obj/
+
+# Ignorar arquivos do sistema
+*.dll
+*.exe
+*.log
+
+# Ignorar pastas de dependências
+node_modules/
