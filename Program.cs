@@ -11,7 +11,7 @@ class Program
 
     static void Main(string[] args)
     {
-        var json = JObject.Parse(File.ReadAllText("config.json"));
+        var json = JObject.Parse(File.ReadAllText("D:\\Users\\jgarc\\source\\repos\\NeymarJaJantou\\config.json"));
         string apiKey = json["HuggingFaceApiKey"].ToString();
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
@@ -27,7 +27,7 @@ class Program
         var prompt = $"If it is {clientNow} in Brazil and Neymar is in Emirates, did he already had dinner?";
         var content = new StringContent("{\"inputs\":\"" + prompt + "\"}", Encoding.UTF8, "application/json");
 
-        var response = client.PostAsync("https://api-inference.huggingface.co/models/gpt2", content).Result;
+        var response = client.PostAsync("https://api-inference.huggingface.co/models/mistralai/Mistral-Nemo-Instruct-2407", content).Result;
         response.EnsureSuccessStatusCode();
 
         var jsonResponse = response.Content.ReadAsStringAsync().Result;
