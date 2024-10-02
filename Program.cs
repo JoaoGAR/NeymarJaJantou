@@ -31,12 +31,10 @@ class Program
         response.EnsureSuccessStatusCode();
 
         var jsonResponse = response.Content.ReadAsStringAsync().Result;
+        var jsonArray = JArray.Parse(jsonResponse);
+        string resposta = jsonArray[0]["generated_text"].ToString();
 
-        // Usando Newtonsoft.Json para parsear o JSON
-        var jsonArray = JArray.Parse(jsonResponse); // Parse como JArray
-        string resposta = jsonArray[0]["generated_text"].ToString(); // Acessa o primeiro item e o campo generated_text
-
-        return resposta.Trim(); // Remove espaços desnecessários
+        return resposta.Trim();
     }
 
 }
