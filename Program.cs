@@ -24,7 +24,7 @@ class Program
 
     static string Ask(string clientNow)
     {
-        var prompt = $"If it is {clientNow} in Brazil and Neymar is in Emirates, did he already had dinner?";
+        var prompt = $"If it is {clientNow} in Brazil and Neymar is in Emirates, did he already had dinner? Only answer Yes or No.";
         var content = new StringContent("{\"inputs\":\"" + prompt + "\"}", Encoding.UTF8, "application/json");
 
         var response = client.PostAsync("https://api-inference.huggingface.co/models/mistralai/Mistral-Nemo-Instruct-2407", content).Result;
